@@ -1,0 +1,16 @@
+server:
+  port: 3337
+  
+spring:
+  application:
+    name: PaymentMS
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+      config:
+        enabled: true
+        prefixes: config
+        default-context: applications
+        profile-separator: "::"
+        format: YAML

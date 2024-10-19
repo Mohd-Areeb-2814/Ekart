@@ -1,0 +1,36 @@
+spring: 
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+       - id: CartMS
+         uri: lb://CartMS
+         predicates:
+          - Path=/Ekart/customercart-api/**
+         filters:
+           - AuthenticationFilter
+       - id: CustomerMS
+         uri: lb://CustomerMS
+         predicates:
+          - Path=/Ekart/customer-api/**, /Ekart/customerorder-api/**, /Ekart/auth/**
+         filters:
+           - AuthenticationFilter
+       - id: PaymentMS
+         uri: lb://PaymentMS
+         predicates:
+          - Path=/Ekart/payment-api/**
+         filters:
+           - AuthenticationFilter
+       - id: ProductMS
+         uri: lb://ProductMS
+         predicates:
+          - Path=/Ekart/product-api/**
+         filters:
+           - AuthenticationFilter
+ #Add the routes here     
+       
+            
+         
+      

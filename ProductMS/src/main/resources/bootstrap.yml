@@ -1,0 +1,16 @@
+server:
+  port: 3334
+  
+spring:
+  application:
+    name: ProductMS
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+      config:
+        enabled: true
+        prefixes: config
+        default-context: applications
+        profile-separator: "::"
+        format: YAML
